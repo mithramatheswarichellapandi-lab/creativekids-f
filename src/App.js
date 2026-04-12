@@ -250,7 +250,7 @@ const [counts, setCounts] = useState({
         transform: "rotate(15deg)", // slight right tilt
       }}
     >
-      <img src="/pencil.svg" className="w-full h-full" />
+      <img src="/pencil.svg" alt="" className="w-full h-full" />
     </div>
 
     {/* Book on Left Side */}
@@ -261,7 +261,7 @@ const [counts, setCounts] = useState({
         transform: "rotate(-12deg)", // slight left tilt
       }}
     >
-      <img src="/book.svg" className="w-full h-full" />
+      <img src="/book.svg" alt="" className="w-full h-full" />
     </div>
 
     {/* ===== Vision & Mission Cards ===== */}

@@ -37,9 +37,9 @@ function Footer() {
 
           {/* Images */}
           <div className="flex gap-4">
-            <img src="/gallery15.jpeg" className="w-28 h-20 rounded-xl object-cover" />
-            <img src="/gallery14.jpeg" className="w-28 h-20 rounded-xl object-cover" />
-            <img src="/gallery19.jpeg" className="w-28 h-20 rounded-xl object-cover" />
+            <img src="/gallery15.jpeg" alt="Kids activity" className="w-28 h-20 rounded-xl object-cover" />
+            <img src="/gallery14.jpeg" alt="Kids playing" className="w-28 h-20 rounded-xl object-cover" />
+            <img src="/gallery19.jpeg" alt="Kids learning" className="w-28 h-20 rounded-xl object-cover" />
           </div>
         </div>
 

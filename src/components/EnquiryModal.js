@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import API_BASE_URL from "../config/api";
 
 function EnquiryModal({ show, onClose }) {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ function EnquiryModal({ show, onClose }) {
 
   try {
     // 🔹 1️⃣ Save to database
-    await fetch("http://localhost:5000/api/enquiry/add", {
+    await fetch(`${API_BASE_URL}/api/enquiry/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

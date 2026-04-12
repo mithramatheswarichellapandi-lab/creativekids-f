@@ -20,16 +20,6 @@ function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const colors = [
-    "text-pink-500",
-    "text-yellow-400",
-    "text-blue-400",
-    "text-green-400",
-    "text-purple-500",
-    "text-red-400",
-    "text-orange-400"
-  ];
-
   return (
     <section className="relative h-screen w-full overflow-hidden">
 

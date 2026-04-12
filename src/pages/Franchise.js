@@ -3,6 +3,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import "./Franchise.css";
+import API_BASE_URL from "../config/api";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -29,7 +30,7 @@ function FranchiseSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/franchise", formData);
+      await axios.post(`${API_BASE_URL}/api/franchise`, formData);
       alert("Franchise enquiry submitted successfully!");
       setFormData({
         name: "",

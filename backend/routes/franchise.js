@@ -3,9 +3,15 @@ const router = express.Router();
 const Franchise = require("../models/Franchise");
 const nodemailer = require("nodemailer");
 
+const sanitize = (str) => String(str).replace(/[<>&"'/]/g, "");
+
 router.post("/", async (req, res) => {
   try {
-    const { name, phone, email, city, pincode } = req.body;
+    const name     = sanitize(req.body.name);
+    const phone    = sanitize(req.body.phone);
+    const email    = sanitize(req.body.email);
+    const city     = sanitize(req.body.city);
+    const pincode  = sanitize(req.body.pincode);
 
     // Save to MongoDB
     const newFranchise = new Franchise({

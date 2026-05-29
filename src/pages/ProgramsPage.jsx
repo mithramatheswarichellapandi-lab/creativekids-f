@@ -11,9 +11,9 @@ import {
 
 const programs = [
   {
-    title: "Preschool Programs",
+    title: "Preschool Programs (1.5 years to 5.5 years)",
     description:
-      "A nurturing early learning environment focusing on creativity, play, and foundational skills.",
+      "Our preschool offers a premium early learning experience that blends structured academics with creative exploration. With a strong focus on phonics, communication, and foundational skills, we nurture confident, curious, and independent learners..",
     icon: Baby,
     color: "from-pink-500 to-pink-600",
     bg: "bg-pink-50",
@@ -21,7 +21,7 @@ const programs = [
   {
     title: "Daycare",
     description:
-      "Safe and caring daycare services ensuring comfort and engagement throughout the day.",
+      "A premium daycare experience built on trust, care, and creativity. Creative Kidz ensures your child enjoys a perfect balance of comfort, play, and early learning.",
     icon: Home,
     color: "from-blue-500 to-blue-600",
     bg: "bg-blue-50",
@@ -29,7 +29,7 @@ const programs = [
   {
     title: "Corporate Daycare",
     description:
-      "On-site childcare solutions tailored for working professionals and organizations.",
+      "Empower the workforce with dependable, high-quality childcare. Creative Kidz Corporate Day Care creates a safe, engaging space for children—so the employees stay focused, stress-free, and productive.",
     icon: Building,
     color: "from-purple-500 to-purple-600",
     bg: "bg-purple-50",
@@ -37,7 +37,7 @@ const programs = [
   {
     title: "Nanny @ Home",
     description:
-      "Trusted caregivers providing personalized care in the comfort of your home.",
+      "Our trained and verified caregivers provide personalized attention in the comfort of your home—ensuring your child feels safe, secure, and loved at all times.",
     icon: Users,
     color: "from-green-500 to-green-600",
     bg: "bg-green-50",

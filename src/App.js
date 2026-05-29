@@ -10,6 +10,9 @@ import CurriculumEvents from "./pages/CurriculumEvents";
 import Footer from "./components/footer";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Franchise from "./pages/Franchise";
+import Home from "./components/home";
+
+
 import ProgramsPage from "./pages/ProgramsPage";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -61,12 +64,12 @@ const [counts, setCounts] = useState({
   document.addEventListener("keydown", handleKeyDown);
 
   // ✅ Random Counts
-  setCounts({
-    students: Math.floor(Math.random() * 50) + 30,
-    teachers: Math.floor(Math.random() * 30) + 20,
-    parents: Math.floor(Math.random() * 70) + 90,
-    views: Math.floor(Math.random() * 5000) + 5000,
-  });
+ setCounts({
+  students: 2240,
+  teachers: 30,   // adjust if you want
+  parents: 5000,
+  views: 15000,
+});
 
   return () => {
     document.removeEventListener("contextmenu", handleContextMenu);
@@ -138,7 +141,7 @@ const [counts, setCounts] = useState({
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
               About <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-                Creative Kidz
+                US 
               </span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mt-6 rounded-full"></div>
@@ -155,7 +158,8 @@ const [counts, setCounts] = useState({
               className="text-gray-600 text-lg leading-relaxed space-y-6"
             >
               <p>
-                Established in <span className="font-semibold text-gray-800">2013</span>,
+                Established in <span className="font-semibold text-gray-800">2013</span>,With a Strength of <span className="font-semibold text-gray-800"> 9 children</span>  for the academic year, we 
+                bloom up with 28 children in next year through our hardwork with proven results and gratitude from our esteemed parents. 
                 CREATIVE KIDZ has proudly nurtured young learners for over
                 <span className="font-semibold text-gray-800"> 12+ years</span>.
               </p>
@@ -163,12 +167,11 @@ const [counts, setCounts] = useState({
               <p>
                 Founded under Aditeya Educational Trust by
                 <span className="font-semibold text-gray-800"> Mr. Arunkumar</span>,
-               with a vision of providing an uncomprised educational start and reaching the unreachables of the society. The institution began with just 9 children and steadily grew through
-                dedication, trust and proven results.
+               with a vision of providing an uncomprised educational start and reaching the unreachables of the society. 
               </p>
 
               <p>
-                Today, we nurture 75+ children in a joyful, secure and stimulating
+                Today, we nurture <span className="font-semibold text-gray-800"> 75+ children every year</span> in a joyful, secure and stimulating
                 environment where learning happens through play, structured guidance
                 and creative exploration. We concentrate on physical, mental, social and emotional development of each and every child.
               </p>
@@ -250,7 +253,7 @@ const [counts, setCounts] = useState({
         transform: "rotate(15deg)", // slight right tilt
       }}
     >
-      <img src="/pencil.svg" alt="" className="w-full h-full" />
+      <img src="/pencil.svg" className="w-full h-full" />
     </div>
 
     {/* Book on Left Side */}
@@ -261,20 +264,20 @@ const [counts, setCounts] = useState({
         transform: "rotate(-12deg)", // slight left tilt
       }}
     >
-      <img src="/book.svg" alt="" className="w-full h-full" />
+      <img src="/book.svg" className="w-full h-full" />
     </div>
 
     {/* ===== Vision & Mission Cards ===== */}
     {[
       {
-        title: "🖍️ Our Vision",
-        text: "To create a joyful world where tiny hands build big dreams and every child grows with confidence, creativity, and kindness.",
+        title: " Our Vision",
+        text: "To become a trusted and leading early childhood learning center that shapes independent thinkers,compassionate individuals, and future-ready children..",
         bg: "bg-yellow-300",
         rotate: "-rotate-2",
       },
       {
-        title: "🌼 Our Mission",
-        text: "To nurture curiosity through playful learning, colorful experiences, and meaningful moments that help every child shine.",
+        title: " Our Mission",
+        text: "To nuture happy,confident and curious young minds through a safe, caring and stimulating environment that blends learning with creativity, play and life skills.",
         bg: "bg-pink-300",
         rotate: "rotate-2",
       },
@@ -308,10 +311,10 @@ const [counts, setCounts] = useState({
 </motion.div>
      </div>
       </section>
-
+<Home/>
       <CurriculumEvents />
 
-     {/* ================= ACHIEVEMENTS ================= */}
+    
 {/* ================= ACHIEVEMENTS ================= */}
 <motion.div
   variants={fadeUp}

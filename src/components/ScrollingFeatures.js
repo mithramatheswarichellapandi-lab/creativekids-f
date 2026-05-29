@@ -6,9 +6,9 @@ function ScrollingFeatures() {
       <div style={styles.container}>
         <div style={styles.scrollContent} className="scroll-track">
           <span>🌟 Safe Environment</span>
-          <span>💖 Well-Cared Children</span>
+          <span>💖 Personalised care for children</span>
           <span>👩‍🏫 Qualified Teachers</span>
-          <span>🧘 Daily Exercise & Yoga</span>
+          <span>🧘 Daily Fitness routine & Yoga</span>
           <span>🎨 Creative Activities</span>
 
           {/* Duplicate for smooth infinite scroll */}

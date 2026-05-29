@@ -1,127 +1,227 @@
-import React from "react";
-import { FaCheckCircle } from "react-icons/fa";
-import { motion } from "framer-motion"; // For popup animations
+import React, { useState, useEffect } from "react";
+import { FaCheckCircle, FaQuoteLeft } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 function CurriculumEvents() {
-  const events = [
+  const [current, setCurrent] = useState(0);
+
+  const testimonials = [
     {
-      title: "Drawing Competition",
-      date: "12",
-      month: "MAR",
-      description: "Kids explore creativity with colors."
+      name: "Shreifa Sulaiman",
+      review: `Creative Kids in Madurai is a wonderful place for children.
+It focuses on overall development and creativity.
+
+The environment is caring and supportive.
+Children are well taken care of daily.
+
+A safe and happy place for learning.`,
     },
     {
-      title: "Annual Day Celebration",
-      date: "25",
-      month: "APR",
-      description: "Dance, drama and joyful celebrations."
+      name: "Elangamani",
+      review: `Very good school with a caring environment.
+Teachers are dedicated and supportive.
+
+Focus on both academics and growth.
+Communication with parents is good.
+
+Happy with our child’s progress.`,
     },
     {
-      title: "Sports Day",
-      date: "15",
-      month: "MAY",
-      description: "Outdoor fun games and happy memories."
-    }
+      name: "Maha Nive",
+      review: `Beautiful school with natural surroundings.
+Children learn discipline and meditation.
+
+Physical activities are well included.
+Peaceful and healthy environment.`,
+    },
+    {
+      name: "Sayatha Lubna",
+      review: `My kids love going to school daily.
+Staff are caring and supportive.
+
+Safe and engaging environment.
+Very satisfied with experience.`,
+    },
   ];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, type: "spring", stiffness: 120 }
-    })
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) =>
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+    <section className="relative py-14 md:py-20 bg-[#f3eef5] overflow-hidden">
 
-        {/* LEFT - Admission Criteria */}
-        <div className="relative p-8 sm:p-10 md:p-12 rounded-3xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl h-auto lg:h-[500px] overflow-hidden">
-          
-          {/* Floating shapes */}
-          <div className="absolute -top-8 -left-8 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-pink-300/30 blur-3xl animate-pulse-slow"></div>
-          <div className="absolute -bottom-8 -right-8 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-purple-400/20 blur-3xl animate-pulse-slow"></div>
+      {/* Background Bubbles */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
 
-          {/* Heading & Content */}
-          <p className="text-yellow-500 uppercase tracking-widest text-xs sm:text-sm mb-2 font-medium relative z-10">
-            Where Little Minds Grow Big Dreams
+        <motion.div
+          className="absolute w-24 h-24 md:w-32 md:h-32 bg-pink-200 rounded-full opacity-30"
+          style={{ top: "10%", left: "5%" }}
+          animate={{ y: [0, -30, 0] }}
+          transition={{ duration: 6, repeat: Infinity }}
+        />
+
+        <motion.div
+          className="absolute w-20 h-20 md:w-24 md:h-24 bg-purple-200 rounded-full opacity-30"
+          style={{ top: "60%", left: "10%" }}
+          animate={{ y: [0, 25, 0] }}
+          transition={{ duration: 5, repeat: Infinity }}
+        />
+
+        <motion.div
+          className="absolute w-28 h-28 md:w-40 md:h-40 bg-yellow-200 rounded-full opacity-20"
+          style={{ top: "20%", right: "10%" }}
+          animate={{ y: [0, 35, 0] }}
+          transition={{ duration: 7, repeat: Infinity }}
+        />
+
+      </div>
+
+      {/* MAIN */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+        {/* LEFT SECTION */}
+        <div className="relative bg-gradient-to-r from-gray-100 to-white p-6 md:p-10 rounded-[30px] shadow-lg overflow-hidden">
+
+          {/* Badge */}
+          <div className="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-pink-500 to-purple-500 text-white flex items-center justify-center rounded-full text-lg md:text-xl shadow-md">
+            🎓
+          </div>
+
+          <p className="text-yellow-500 font-semibold tracking-widest text-xs md:text-sm mb-3 md:mb-4">
+            WHERE LITTLE MINDS GROW BIG DREAMS
           </p>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 sm:mb-8 text-gray-900 relative z-10 animate-pop">
-            ADMISSION-CRITERIA
-          </h3>
-          <ul className="space-y-4 sm:space-y-5 text-sm sm:text-base md:text-lg text-gray-700 relative z-10">
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6 md:mb-8">
+            ADMISSION <br /> CRITERIA
+          </h2>
+
+          <ul className="space-y-4 text-gray-700 text-sm sm:text-base md:text-lg">
+
             {[
               "Day care (1 year to 10 years)",
               "Playschool (1.6 yrs to 2.5 yrs)",
               "Pre KG (2.6 yrs to 3.5 yrs)",
               "LKG (3.6 yrs to 4.5 yrs)",
-              "UKG (4.6 yrs to 5.5 yrs)"
+              "UKG (4.6 yrs to 5.5 yrs)",
             ].map((item, idx) => (
-              <li key={idx} className="flex items-center gap-2 sm:gap-3">
-                <FaCheckCircle className="text-yellow-400 text-base sm:text-xl" />
-                {item}
+              <li key={idx} className="flex items-start gap-3">
+                <FaCheckCircle className="text-yellow-400 text-lg mt-1" />
+                <span>{item}</span>
               </li>
             ))}
+
           </ul>
 
-          {/* 🎓 Top-right icon */}
-          <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center text-2xl sm:text-3xl shadow-lg animate-bounce z-10">
-            🎓
-          </div>
-
-          {/* Glass effect boy image */}
-          <div className="absolute top-10 sm:top-12 -right-8 sm:-right-12 h-[200px] sm:h-full w-2/3 z-0 overflow-hidden rounded-r-3xl bg-white/20 backdrop-blur-xl">
-            <img
-              src="/admission.png"
-              alt="Boy"
-              className="h-full w-full object-contain mix-blend-multiply opacity-90"
-            />
-          </div>
+          {/* Kid Image */}
+          <img
+            src="/kid.jpg"
+            alt="kid"
+            className="hidden sm:block absolute bottom-0 right-0 w-28 md:w-44 lg:w-52"
+          />
         </div>
 
-        {/* RIGHT - Events */}
-        <div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 sm:mb-10 text-center lg:text-left animate-pulse">
-            🎉 Upcoming Events
+        {/* RIGHT SECTION */}
+        <div className="flex flex-col items-center">
+
+          {/* Heading */}
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-8 md:mb-12 text-center leading-tight px-2">
+            <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-400 text-transparent bg-clip-text">
+              Voice of Creative Kidz Family
+            </span>
           </h2>
 
-          <div className="space-y-4 sm:space-y-6">
-            {events.map((event, index) => (
+          <div className="w-full max-w-[550px]">
+
+            <AnimatePresence mode="wait">
               <motion.div
-                key={index}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                variants={cardVariants}
-                className="flex flex-col sm:flex-row items-center bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 p-4 sm:p-6 cursor-pointer transform hover:-translate-y-1 sm:hover:-translate-y-2"
+                key={current}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -40, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
               >
-                {/* Date Box */}
-                <div className="flex flex-row sm:flex-col items-center justify-center bg-gradient-to-b from-pink-400 to-pink-500 text-white rounded-xl px-4 py-2 sm:px-5 sm:py-4 mr-0 sm:mr-6 mb-3 sm:mb-0">
-                  <span className="text-xs sm:text-sm font-semibold tracking-wider">
-                    {event.month}
-                  </span>
-                  <span className="text-xl sm:text-2xl md:text-3xl font-bold leading-none">
-                    {event.date}
-                  </span>
-                </div>
 
-                {/* Event Details */}
-                <div className="text-center sm:text-left">
-                  <h3 className="font-bold text-gray-900 text-lg sm:text-xl md:text-xl mb-1">
-                    {event.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm sm:text-base md:text-base">
-                    {event.description}
+                {/* CARD */}
+                <div className="relative overflow-hidden rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.12)] p-6 md:p-10">
+
+                  {/* Glow */}
+                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-300 rounded-full blur-3xl opacity-20"></div>
+
+                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-300 rounded-full blur-3xl opacity-20"></div>
+
+                  {/* Quote Icon */}
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-xl mb-5">
+                    <FaQuoteLeft className="text-white text-xl md:text-2xl" />
+                  </div>
+
+                  {/* Review */}
+                  <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed whitespace-pre-line mb-6 relative z-10">
+                    {testimonials[current].review}
                   </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
 
+                  {/* Divider */}
+                  <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-pink-300 to-transparent mb-5"></div>
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between gap-3 flex-wrap">
+
+                    <div>
+                      <h4 className="text-lg md:text-xl font-bold text-gray-900">
+                        {testimonials[current].name}
+                      </h4>
+
+                      <p className="text-xs md:text-sm text-pink-500 font-medium mt-1">
+                        Happy Parent
+                      </p>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-yellow-400 to-pink-400 text-white text-xs md:text-sm font-semibold px-3 py-2 rounded-full shadow-lg">
+                      ★★★★★
+                    </div>
+
+                  </div>
+                </div>
+
+              </motion.div>
+            </AnimatePresence>
+
+          </div>
+
+          {/* BUTTONS */}
+          <div className="flex gap-4 mt-8">
+
+            <button
+              onClick={() =>
+                setCurrent((prev) =>
+                  prev === 0 ? testimonials.length - 1 : prev - 1
+                )
+              }
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg hover:scale-110 transition duration-300 text-lg"
+            >
+              ←
+            </button>
+
+            <button
+              onClick={() =>
+                setCurrent((prev) =>
+                  prev === testimonials.length - 1 ? 0 : prev + 1
+                )
+              }
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg hover:scale-110 transition duration-300 text-lg"
+            >
+              →
+            </button>
+
+          </div>
+
+        </div>
       </div>
     </section>
   );

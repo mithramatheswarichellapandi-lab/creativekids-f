@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   FaMapMarkerAlt,
   FaEnvelope,
@@ -12,47 +11,57 @@ import {
 } from "react-icons/fa";
 
 function Footer() {
-  const [selectedQR, setSelectedQR] = useState(null);
-  const [selectedLink, setSelectedLink] = useState("");
+  const [showQR, setShowQR] = useState(false);
 
   return (
-    <footer className="bg-[#5b136b] text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-r from-[#5b136b] to-[#7e1f91] text-white relative overflow-hidden">
 
-      {/* Main Footer Content */}
-      <div className="grid md:grid-cols-3 gap-10 px-10 py-12">
+      {/* Main Content */}
+      <div className="grid md:grid-cols-3 gap-10 px-8 py-12">
 
         {/* Column 1 */}
         <div>
-          <h2 className="text-3xl font-bold leading-snug mb-4">
+          <h2 className="text-3xl font-bold mb-4 leading-snug">
             Giving your child the <br /> best start in life
           </h2>
 
-          <div className="flex items-start gap-3 text-sm mb-6">
-            <FaMapMarkerAlt className="text-yellow-400 mt-1" />
-            <p>
-              Branch-1 H29, Malligai Nagar, TNHB Colony, Anaiyur, Madurai <br />
-              Branch-2 ELCOT, Mattuthavani, Madurai
-            </p>
-          </div>
+          <div className="text-sm mb-6 space-y-3">
 
-          {/* Images */}
-          <div className="flex gap-4">
-            <img src="/gallery15.jpeg" alt="Kids activity" className="w-28 h-20 rounded-xl object-cover" />
-            <img src="/gallery14.jpeg" alt="Kids playing" className="w-28 h-20 rounded-xl object-cover" />
-            <img src="/gallery19.jpeg" alt="Kids learning" className="w-28 h-20 rounded-xl object-cover" />
+  {/* Branch 1 */}
+  <div className="flex gap-3">
+    <FaMapMarkerAlt className="text-yellow-400 mt-1" />
+    <p>
+      Branch-1 H29, Malligai Nagar, TNHB Colony, Anaiyur, Madurai
+    </p>
+  </div>
+
+  {/* Branch 2 */}
+  <div className="flex gap-3">
+    <FaMapMarkerAlt className="text-yellow-400 mt-1" />
+    <p>
+      Branch-2 ELCOT, Mattuthavani, Madurai
+    </p>
+  </div>
+
+</div>
+
+          <div className="flex gap-3">
+            <img src="/gallery15.jpeg" className="w-24 h-20 rounded-xl object-cover hover:scale-105 transition" />
+            <img src="/gallery14.jpeg" className="w-24 h-20 rounded-xl object-cover hover:scale-105 transition" />
+            <img src="/gallery19.jpeg" className="w-24 h-20 rounded-xl object-cover hover:scale-105 transition" />
           </div>
         </div>
 
         {/* Column 2 */}
         <div>
           <h3 className="text-2xl font-bold mb-2">Get In Touch</h3>
-          <div className="w-10 h-1 bg-yellow-400 mb-6"></div>
+          <div className="w-12 h-1 bg-yellow-400 mb-6"></div>
 
           <p className="mb-3">
             Monday to Friday: <strong>8.30am – 03.00pm</strong>
           </p>
           <p className="mb-6">
-            Saturday, Sunday: <strong>If needed, Special Care</strong>
+            Saturday, Sunday: <strong>Special Care Available</strong>
           </p>
 
           <div className="flex items-center gap-4 mb-4">
@@ -72,117 +81,106 @@ function Footer() {
 
         {/* Column 3 */}
         <div>
-          <h3 className="text-2xl font-bold mb-2">Useful Services</h3>
-          <div className="w-10 h-1 bg-yellow-400 mb-6"></div>
+          <h3 className="text-2xl font-bold mb-2">Services</h3>
+          <div className="w-12 h-1 bg-yellow-400 mb-6"></div>
 
           <div className="grid grid-cols-2 gap-3 text-sm">
             <p>• Daycare</p>
-            <p>• Pre-school</p>
-            <p>• Kindergarten</p>
-            <p>• Playgroup</p>
+            <p>• Pre-school Programs</p>
+            <p>• Nanny @ Home</p>
+             <p>• Corporate Daycare</p>
+            <p>• After School Programs</p>
+             <p>• Daily Fittness Routine</p>
           </div>
         </div>
       </div>
 
-      {/* Scroll To Top */}
+      {/* 🔥 Curved Floating Social Bar */}
+      <div className="absolute bottom-6 right-6 bg-white/10 backdrop-blur-lg px-5 py-3 rounded-full flex gap-4 shadow-xl border border-white/20">
+
+        {/* Facebook */}
+        <a
+          href="https://www.facebook.com/share/1D3a5EYqvz/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white p-3 rounded-full hover:scale-110 transition"
+        >
+          <FaFacebookF className="text-[#1877F2]" />
+        </a>
+
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/919597025555"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white p-3 rounded-full hover:scale-110 transition"
+        >
+          <FaWhatsapp className="text-[#25D366]" />
+        </a>
+
+        {/* Instagram (QR Popup) */}
+        <button
+          onClick={() => setShowQR(true)}
+          className="bg-white p-3 rounded-full hover:scale-110 transition"
+        >
+          <FaInstagram className="text-[#E4405F]" />
+        </button>
+
+        {/* YouTube */}
+        <a
+          href="https://www.youtube.com/@creativekidz3567"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white p-3 rounded-full hover:scale-110 transition"
+        >
+          <FaYoutube className="text-[#FF0000]" />
+        </a>
+
+      </div>
+
+      {/* Scroll to Top */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="absolute bottom-6 right-6 bg-red-500 hover:bg-red-600 p-4 rounded-full shadow-lg"
+        className="absolute bottom-6 left-6 bg-yellow-400 text-black p-3 rounded-full shadow-lg hover:scale-110 transition"
       >
         <FaArrowUp />
       </button>
 
-      {/* Social Icons */}
-      <div className="absolute bottom-6 right-20 flex gap-4">
+      {/* 📱 Instagram QR Popup */}
+      {showQR && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
 
-        {/* Facebook */}
-        <button
-          onClick={() => {
-            setSelectedQR("/facebook-qr.png");
-            setSelectedLink("https://facebook.com/yourpage");
-          }}
-          className="bg-white text-[#5b136b] p-3 rounded-full hover:bg-yellow-400 transition duration-300 shadow-md"
-        >
-          <FaFacebookF />
-        </button>
+          <div className="bg-white p-6 rounded-2xl text-center w-80 relative shadow-2xl">
 
-        {/* WhatsApp */}
-        <button
-          onClick={() => {
-            setSelectedQR("/whatsapp-qr.png");
-            setSelectedLink("https://wa.me/919597025555");
-          }}
-          className="bg-white text-[#5b136b] p-3 rounded-full hover:bg-yellow-400 transition duration-300 shadow-md"
-        >
-          <FaWhatsapp />
-        </button>
-
-        {/* Instagram */}
-        <button
-          onClick={() => {
-            setSelectedQR("/instagram-qr.png");
-            setSelectedLink("https://instagram.com/yourusername");
-          }}
-          className="bg-white text-[#5b136b] p-3 rounded-full hover:bg-yellow-400 transition duration-300 shadow-md"
-        >
-          <FaInstagram />
-        </button>
-
-        {/* YouTube */}
-        <button
-          onClick={() => {
-            setSelectedQR("/youtube-qr.png");
-            setSelectedLink("https://youtube.com/yourchannel");
-          }}
-          className="bg-white text-[#5b136b] p-3 rounded-full hover:bg-yellow-400 transition duration-300 shadow-md"
-        >
-          <FaYoutube />
-        </button>
-
-      </div>
-
-      {/* QR Popup */}
-      {selectedQR && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          
-          <div className="bg-white p-6 rounded-2xl shadow-xl text-center relative w-80">
-
-            {/* Close */}
             <button
-              onClick={() => {
-                setSelectedQR(null);
-                setSelectedLink("");
-              }}
-              className="absolute top-2 right-3 text-gray-500 hover:text-black text-xl"
+              onClick={() => setShowQR(false)}
+              className="absolute top-2 right-3 text-gray-500 text-xl hover:text-black"
             >
               ✕
             </button>
 
-            <h2 className="text-xl font-semibold mb-4 text-gray-800">
-              Connect with us
+            <h2 className="text-lg font-semibold mb-4 text-gray-800">
+              Follow us on Instagram
             </h2>
 
             <img
-              src={selectedQR}
-              alt="QR Code"
-              className="w-56 h-56 object-contain mx-auto mb-4"
+              src="/instagram-qr.png"
+              alt="Instagram QR"
+              className="w-52 h-52 mx-auto mb-4"
             />
 
-            {/* Direct Link */}
             <a
-              href={selectedLink}
+              href="https://instagram.com/creativekidz2011"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[#5b136b] text-white px-5 py-2 rounded-full hover:bg-purple-800 transition"
+              className="bg-[#E4405F] text-white px-5 py-2 rounded-full hover:opacity-90 transition"
             >
-              Open Now
+              Open Instagram
             </a>
 
           </div>
-
         </div>
       )}
-
     </footer>
   );
 }
